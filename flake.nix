@@ -25,6 +25,9 @@
             direnv
             nix-direnv
             just
+            delta
+            bottom
+            ripgrep
 
             # Text editors and utilities
             vim

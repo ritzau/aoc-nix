@@ -1,12 +1,20 @@
 {
   description = "Hello World COBOL";
   inputs = {
-    cobol-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/cobol";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, cobol-lang }:
-    cobol-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-cobol";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.cobol.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-cobol";
+      }
+    );
 }

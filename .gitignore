@@ -90,6 +90,9 @@ cabal.project.local~
 ehthumbs.db
 Thumbs.db
 
+# AI
+/.claude/
+
 # Personal input files (per AOC guidelines)
 inputs/**/*.txt
 !inputs/**/README.md

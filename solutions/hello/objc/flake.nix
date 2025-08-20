@@ -1,12 +1,20 @@
 {
   description = "Hello World Objective-C";
   inputs = {
-    objc-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/objc";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, objc-lang }:
-    objc-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-objc";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.objc.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-objc";
+      }
+    );
 }

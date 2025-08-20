@@ -1,12 +1,20 @@
 {
   description = "Hello World JavaScript";
   inputs = {
-    javascript-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/javascript";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, javascript-lang }:
-    javascript-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-javascript";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.javascript.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-javascript";
+      }
+    );
 }

@@ -4,6 +4,27 @@
 default:
     @just --list
 
+# Enable development mode (use local languages repository)
+dev-mode:
+    @echo "Switching to development mode (local languages repository)..."
+    @find solutions -name "flake.nix" -exec sed -i.backup 's|github:user/aoc-polyglot-languages|path:../../../../aoc-polyglot-languages|g' {} \;
+    @echo "Development mode enabled. Run 'just prod-mode' before committing."
+
+# Enable production mode (use GitHub languages repository)
+prod-mode:
+    @echo "Switching to production mode (GitHub languages repository)..."
+    @find solutions -name "flake.nix" -exec sed -i.backup 's|path:../../../../aoc-polyglot-languages|github:user/aoc-polyglot-languages|g' {} \;
+    @echo "Production mode enabled. Safe to commit."
+
+# Test a specific solution with current language setup
+test-solution lang:
+    @if [ -d "solutions/hello/{{lang}}" ]; then \
+        echo "Testing solutions/hello/{{lang}} with current language setup..."; \
+        cd solutions/hello/{{lang}} && nix develop --command echo "{{lang}} solution works!"; \
+    else \
+        echo "Solution solutions/hello/{{lang}} not found"; \
+    fi
+
 # Update all flakes
 update:
     nix flake update

@@ -1,14 +1,20 @@
 {
   description = "Hello World C";
-
   inputs = {
-    c-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/c";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs =
-    { self, c-lang }:
-    c-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-c";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.c.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-c";
+      }
+    );
 }
