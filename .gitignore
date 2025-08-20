@@ -96,3 +96,6 @@ Thumbs.db
 # Personal input files (per AOC guidelines)
 inputs/**/*.txt
 !inputs/**/README.md
+
+# Language justfiles (auto-generated from polyglot repo)
+.justfile-*
