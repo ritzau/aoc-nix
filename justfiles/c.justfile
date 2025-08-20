@@ -1,0 +1,1 @@
+../../aoc-polyglot-languages/justfiles/c.justfile

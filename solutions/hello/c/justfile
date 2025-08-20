@@ -1,5 +1,5 @@
 # Hello World C - Import language commands
-import '../../../languages/c/justfile'
+import env_var('JUSTFILE_C')
 
 # Solution-specific commands can be added here
 # Example: hello command for easy testing
