@@ -1,12 +1,20 @@
 {
   description = "Hello World Dart";
   inputs = {
-    dart-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/dart";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, dart-lang }:
-    dart-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-dart";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.dart.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-dart";
+      }
+    );
 }

@@ -1,12 +1,20 @@
 {
   description = "Hello World Julia";
   inputs = {
-    julia-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/julia";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, julia-lang }:
-    julia-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-julia";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.julia.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-julia";
+      }
+    );
 }

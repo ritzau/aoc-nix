@@ -1,5 +1,5 @@
 # Hello World Haskell - Import language commands
-import '../../../languages/haskell/justfile'
+import '.cache/haskell.justfile'
 
 # Solution-specific commands
 hello:

@@ -1,12 +1,20 @@
 {
   description = "Hello World PHP";
   inputs = {
-    php-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/php";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, php-lang }:
-    php-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-php";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.php.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-php";
+      }
+    );
 }

@@ -13,7 +13,7 @@
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
-      aoc-langs.lib.${system}.c.mkStandardOutputs {
+      aoc-langs.lib.${system}.cpp.mkStandardOutputs {
         src = ./.;
         pname = "hello-cpp";
       }

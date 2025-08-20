@@ -1,12 +1,20 @@
 {
   description = "Hello World Lisp";
   inputs = {
-    lisp-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/lisp";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, lisp-lang }:
-    lisp-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-lisp";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.lisp.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-lisp";
+      }
+    );
 }

@@ -1,5 +1,5 @@
 # Hello World Nim - Import language commands
-import '../../../languages/nim/justfile'
+import '.cache/nim.justfile'
 
 # Solution-specific commands
 hello:

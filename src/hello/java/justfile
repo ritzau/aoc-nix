@@ -1,5 +1,5 @@
 # Hello World Java - Import language commands
-import '../../../languages/java/justfile'
+import '.cache/java.justfile'
 
 # Solution-specific commands
 hello:

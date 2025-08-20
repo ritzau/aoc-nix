@@ -1,5 +1,5 @@
 # Hello World Lua - Import language commands
-import '../../../languages/lua/justfile'
+import '.cache/lua.justfile'
 
 # Solution-specific commands
 hello:

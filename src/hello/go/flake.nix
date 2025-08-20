@@ -1,14 +1,20 @@
 {
   description = "Hello World Go";
-
   inputs = {
-    go-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/go";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs =
-    { self, go-lang }:
-    go-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-go";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.go.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-go";
+      }
+    );
 }

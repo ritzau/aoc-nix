@@ -1,5 +1,5 @@
 # Hello World Clojure - Import language commands
-import '../../../languages/clojure/justfile'
+import '.cache/clojure.justfile'
 
 # Solution-specific commands
 hello:

@@ -1,5 +1,5 @@
 # Hello World Ruby - Import language commands
-import '../../../languages/ruby/justfile'
+import '.cache/ruby.justfile'
 
 # Solution-specific commands
 hello:

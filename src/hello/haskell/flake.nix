@@ -1,12 +1,20 @@
 {
   description = "Hello World Haskell";
   inputs = {
-    haskell-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/haskell";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, haskell-lang }:
-    haskell-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-haskell";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.haskell.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-haskell";
+      }
+    );
 }

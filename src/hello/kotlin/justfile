@@ -1,5 +1,5 @@
 # Hello World Kotlin - Import language commands
-import '../../../languages/kotlin/justfile'
+import '.cache/kotlin.justfile'
 
 # Solution-specific commands
 hello:

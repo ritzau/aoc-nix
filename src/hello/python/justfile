@@ -1,5 +1,5 @@
 # Hello World Python - Import language commands
-import '../../../languages/python/justfile'
+import '.cache/python.justfile'
 
 # Solution-specific commands
 hello:

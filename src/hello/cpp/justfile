@@ -1,5 +1,5 @@
 # Hello World C++ - Import language commands
-import '../../../languages/cpp/justfile'
+import '.cache/cpp.justfile'
 
 # Solution-specific commands
 hello:

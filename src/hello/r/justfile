@@ -1,5 +1,5 @@
 # Hello World R - Import language commands
-import '../../../languages/r/justfile'
+import '.cache/r.justfile'
 
 # Solution-specific commands
 hello:

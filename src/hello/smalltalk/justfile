@@ -1,5 +1,5 @@
 # Hello World Smalltalk - Import language commands
-import '../../../languages/smalltalk/justfile'
+import '.cache/smalltalk.justfile'
 
 # Solution-specific commands
 hello:

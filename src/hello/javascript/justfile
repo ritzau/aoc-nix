@@ -1,5 +1,5 @@
 # Hello World JavaScript - Import language commands
-import '../../../languages/javascript/justfile'
+import '.cache/javascript.justfile'
 
 # Solution-specific commands
 hello:

@@ -1,5 +1,5 @@
 # Hello World Rust - Import language commands
-import '../../../languages/rust/justfile'
+import '.cache/rust.justfile'
 
 # Solution-specific commands
 hello:

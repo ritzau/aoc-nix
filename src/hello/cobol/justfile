@@ -1,5 +1,5 @@
 # Hello World COBOL - Import language commands
-import '../../../languages/cobol/justfile'
+import '.cache/cobol.justfile'
 
 # Solution-specific commands
 hello:

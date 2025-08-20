@@ -1,5 +1,5 @@
 # Hello World Go - Import language commands
-import '../../../languages/go/justfile'
+import '.cache/go.justfile'
 
 # Solution-specific commands
 hello:

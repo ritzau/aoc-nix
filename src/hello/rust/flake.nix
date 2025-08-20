@@ -2,13 +2,21 @@
   description = "Hello World Rust";
 
   inputs = {
-    rust-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/rust";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
-    { self, rust-lang }:
-    rust-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-rust";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.rust.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-rust";
+      }
+    );
 }

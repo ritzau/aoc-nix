@@ -1,12 +1,20 @@
 {
   description = "Hello World Fortran";
   inputs = {
-    fortran-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/fortran";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, fortran-lang }:
-    fortran-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-fortran";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.fortran.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-fortran";
+      }
+    );
 }

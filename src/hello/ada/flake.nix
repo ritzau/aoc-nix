@@ -1,12 +1,20 @@
 {
   description = "Hello World Ada";
   inputs = {
-    ada-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/ada";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, ada-lang }:
-    ada-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-ada";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.ada.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-ada";
+      }
+    );
 }

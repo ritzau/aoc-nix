@@ -1,12 +1,20 @@
 {
   description = "Hello World TypeScript";
   inputs = {
-    typescript-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/typescript";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, typescript-lang }:
-    typescript-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-typescript";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.typescript.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-typescript";
+      }
+    );
 }

@@ -1,12 +1,20 @@
 {
   description = "Hello World Swift";
   inputs = {
-    swift-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/swift";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, swift-lang }:
-    swift-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-swift";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.swift.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-swift";
+      }
+    );
 }

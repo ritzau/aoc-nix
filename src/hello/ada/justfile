@@ -1,5 +1,5 @@
 # Hello World Ada - Import language commands
-import '../../../languages/ada/justfile'
+import '.cache/ada.justfile'
 
 # Solution-specific commands
 hello:

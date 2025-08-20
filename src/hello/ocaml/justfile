@@ -1,5 +1,5 @@
 # Hello World OCaml - Import language commands
-import '../../../languages/ocaml/justfile'
+import '.cache/ocaml.justfile'
 
 # Solution-specific commands
 hello:

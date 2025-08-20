@@ -1,12 +1,20 @@
 {
   description = "Hello World Ruby";
   inputs = {
-    ruby-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/ruby";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, ruby-lang }:
-    ruby-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-ruby";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.ruby.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-ruby";
+      }
+    );
 }

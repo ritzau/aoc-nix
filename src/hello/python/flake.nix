@@ -1,12 +1,20 @@
 {
   description = "Hello World Python";
   inputs = {
-    python-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/python";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, python-lang }:
-    python-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-python";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.python.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-python";
+      }
+    );
 }

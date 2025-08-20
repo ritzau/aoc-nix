@@ -1,5 +1,5 @@
 # Hello World C# - Import language commands
-import '../../../languages/csharp/justfile'
+import '.cache/csharp.justfile'
 
 # Solution-specific commands
 hello:

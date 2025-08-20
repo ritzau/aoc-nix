@@ -1,5 +1,5 @@
 # Hello World PHP - Import language commands
-import '../../../languages/php/justfile'
+import '.cache/php.justfile'
 
 # Solution-specific commands
 hello:

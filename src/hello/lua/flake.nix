@@ -1,12 +1,20 @@
 {
   description = "Hello World Lua";
   inputs = {
-    lua-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/lua";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, lua-lang }:
-    lua-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-lua";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.lua.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-lua";
+      }
+    );
 }

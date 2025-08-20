@@ -1,5 +1,5 @@
 # Hello World D - Import language commands
-import '../../../languages/d/justfile'
+import '.cache/d.justfile'
 
 # Solution-specific commands
 hello:

@@ -1,5 +1,5 @@
 # Hello World Elixir - Import language commands
-import '../../../languages/elixir/justfile'
+import '.cache/elixir.justfile'
 
 # Solution-specific commands
 hello:

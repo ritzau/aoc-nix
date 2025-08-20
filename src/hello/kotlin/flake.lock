@@ -1,25 +1,22 @@
 {
   "nodes": {
-    "base": {
+    "aoc-langs": {
       "inputs": {
-        "flake-utils": [
-          "kotlin-lang",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "kotlin-lang",
-          "nixpkgs"
-        ]
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1755596287,
-        "narHash": "sha256-JO1raiUkJspWYqECvweMVKdh/wpSGcnBFwJKt+0FFoU=",
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/base",
-        "type": "path"
+        "lastModified": 1755697266,
+        "narHash": "sha256-4sIiYLR59Fko5o1H9eY0wMDkudb0hLgCNpUgyVpadjc=",
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "rev": "7c842228f9dd070fd0417b7cd8afee6995100ff4",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/base",
-        "type": "path"
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "type": "github"
       }
     },
     "flake-utils": {
@@ -40,21 +37,22 @@
         "type": "github"
       }
     },
-    "kotlin-lang": {
+    "flake-utils_2": {
       "inputs": {
-        "base": "base",
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1755597840,
-        "narHash": "sha256-24RBOLVKeV4Za3ZZAgXZCmjvGQrv+phBpXuhaJVhaAU=",
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/kotlin",
-        "type": "path"
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/kotlin",
-        "type": "path"
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -75,10 +73,26 @@
     },
     "root": {
       "inputs": {
-        "kotlin-lang": "kotlin-lang"
+        "aoc-langs": "aoc-langs",
+        "flake-utils": "flake-utils_2"
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

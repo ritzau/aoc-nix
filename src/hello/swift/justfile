@@ -1,5 +1,5 @@
 # Hello World Swift - Import language commands
-import '../../../languages/swift/justfile'
+import '.cache/swift.justfile'
 
 # Solution-specific commands
 hello:

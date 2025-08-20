@@ -1,5 +1,5 @@
 # Hello World Zig - Import language commands
-import '../../../languages/zig/justfile'
+import '.cache/zig.justfile'
 
 # Solution-specific commands
 hello:

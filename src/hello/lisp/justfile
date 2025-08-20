@@ -1,5 +1,5 @@
 # Hello World Lisp - Import language commands
-import '../../../languages/lisp/justfile'
+import '.cache/lisp.justfile'
 
 # Solution-specific commands
 hello:

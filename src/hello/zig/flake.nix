@@ -1,12 +1,20 @@
 {
   description = "Hello World Zig";
   inputs = {
-    zig-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/zig";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, zig-lang }:
-    zig-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-zig";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.zig.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-zig";
+      }
+    );
 }

@@ -1,12 +1,20 @@
 {
   description = "Hello World Clojure";
   inputs = {
-    clojure-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/clojure";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, clojure-lang }:
-    clojure-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-clojure";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.clojure.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-clojure";
+      }
+    );
 }

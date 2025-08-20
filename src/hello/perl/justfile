@@ -1,5 +1,5 @@
 # Hello World Perl - Import language commands
-import '../../../languages/perl/justfile'
+import '.cache/perl.justfile'
 
 # Solution-specific commands
 hello:

@@ -1,12 +1,20 @@
 {
   description = "Hello World Smalltalk";
   inputs = {
-    smalltalk-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/smalltalk";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, smalltalk-lang }:
-    smalltalk-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-smalltalk";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.smalltalk.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-smalltalk";
+      }
+    );
 }

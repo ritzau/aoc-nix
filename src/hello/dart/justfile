@@ -1,5 +1,5 @@
 # Hello World Dart - Import language commands
-import '../../../languages/dart/justfile'
+import '.cache/dart.justfile'
 
 # Solution-specific commands
 hello:

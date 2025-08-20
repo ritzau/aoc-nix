@@ -1,5 +1,5 @@
 # Hello World Tcl - Import language commands
-import '../../../languages/tcl/justfile'
+import '.cache/tcl.justfile'
 
 # Solution-specific commands
 hello:

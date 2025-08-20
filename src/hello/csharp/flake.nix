@@ -1,12 +1,20 @@
 {
   description = "Hello World C#";
   inputs = {
-    csharp-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/csharp";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, csharp-lang }:
-    csharp-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-csharp";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.csharp.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-csharp";
+      }
+    );
 }

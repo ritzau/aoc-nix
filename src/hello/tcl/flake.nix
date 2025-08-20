@@ -1,12 +1,20 @@
 {
   description = "Hello World Tcl";
   inputs = {
-    tcl-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/tcl";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, tcl-lang }:
-    tcl-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-tcl";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.tcl.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-tcl";
+      }
+    );
 }

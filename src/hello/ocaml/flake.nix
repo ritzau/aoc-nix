@@ -1,12 +1,20 @@
 {
   description = "Hello World OCaml";
   inputs = {
-    ocaml-lang.url = "path:/Users/ritzau/src/slask/aoc-nix/languages/ocaml";
+    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { self, ocaml-lang }:
-    ocaml-lang.mkStandardOutputs {
-      src = ./.;
-      pname = "hello-ocaml";
-    };
+    {
+      self,
+      aoc-langs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      aoc-langs.lib.${system}.ocaml.mkStandardOutputs {
+        src = ./.;
+        pname = "hello-ocaml";
+      }
+    );
 }

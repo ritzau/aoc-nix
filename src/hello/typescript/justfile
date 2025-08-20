@@ -1,5 +1,5 @@
 # Hello World TypeScript - Import language commands
-import '../../../languages/typescript/justfile'
+import '.cache/typescript.justfile'
 
 # Solution-specific commands
 hello:

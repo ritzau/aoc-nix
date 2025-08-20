@@ -1,5 +1,5 @@
 # Hello World Fortran - Import language commands
-import '../../../languages/fortran/justfile'
+import '.cache/fortran.justfile'
 
 # Solution-specific commands
 hello:
