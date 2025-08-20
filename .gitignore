@@ -97,5 +97,5 @@ Thumbs.db
 inputs/**/*.txt
 !inputs/**/README.md
 
-# Language justfiles (auto-generated from polyglot repo)
-.justfile-*
+# Cache directory for auto-generated files
+.cache/
