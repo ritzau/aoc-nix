@@ -1,47 +1,45 @@
 {
   "nodes": {
-    "base": {
+    "aoc-langs": {
       "inputs": {
-        "flake-utils": [
-          "cobol-lang",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "cobol-lang",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1755596287,
-        "narHash": "sha256-JO1raiUkJspWYqECvweMVKdh/wpSGcnBFwJKt+0FFoU=",
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/base",
-        "type": "path"
-      },
-      "original": {
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/base",
-        "type": "path"
-      }
-    },
-    "cobol-lang": {
-      "inputs": {
-        "base": "base",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1755635366,
-        "narHash": "sha256-R5xupUYsXIqcMf86bf1RoFM/UZJ2b8IXjd2iAjnaZto=",
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/cobol",
-        "type": "path"
+        "lastModified": 1755723582,
+        "narHash": "sha256-uHh/XPILPO9Msma9Hd+n4vZgXRfL0pP3WDszSzDboNA=",
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "rev": "ad43672a5bcf13334675245f2143450b207f1454",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/ritzau/src/slask/aoc-nix/languages/cobol",
-        "type": "path"
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "type": "github"
       }
     },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -75,10 +73,26 @@
     },
     "root": {
       "inputs": {
-        "cobol-lang": "cobol-lang"
+        "aoc-langs": "aoc-langs",
+        "flake-utils": "flake-utils_2"
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
