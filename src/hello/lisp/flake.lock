@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1755723582,
-        "narHash": "sha256-uHh/XPILPO9Msma9Hd+n4vZgXRfL0pP3WDszSzDboNA=",
+        "lastModified": 1755726967,
+        "narHash": "sha256-He82KRCgQtCIElrrTZ/3+dtZGScGA9XFByEG16fI4Rw=",
         "owner": "ritzau",
         "repo": "aoc-polyglot-languages",
-        "rev": "ad43672a5bcf13334675245f2143450b207f1454",
+        "rev": "de45a8d66ec7acc90e2a187f9a19e1701289550d",
         "type": "github"
       },
       "original": {
