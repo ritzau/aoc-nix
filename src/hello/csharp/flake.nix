@@ -1,20 +1,15 @@
 {
   description = "Hello World C#";
+
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages/1b9a1de";
     flake-utils.url = "github:numtide/flake-utils";
   };
+
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.csharp.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-csharp";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.csharp.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+    };
 }
