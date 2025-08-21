@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "aoc-langs": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1755777259,
-        "narHash": "sha256-MQjVYSkCLGFVFMvUBmHUFcG7TmJWCCG9w/kGt5O1WzM=",
-        "path": "/Users/ritzau/src/slask/aoc/aoc-polyglot-languages",
-        "type": "path"
-      },
-      "original": {
-        "path": "/Users/ritzau/src/slask/aoc/aoc-polyglot-languages",
-        "type": "path"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -54,11 +38,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755186698,
-        "narHash": "sha256-wNO3+Ks2jZJ4nTHMuks+cxAiVBGNuEBXsT29Bz6HASo=",
+        "lastModified": 1755615617,
+        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fbcf476f790d8a217c3eab4e12033dc4a0f6d23c",
+        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
         "type": "github"
       },
       "original": {
@@ -68,25 +52,29 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "polyglot": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1755706679,
-        "narHash": "sha256-WJ6eaSiN6xtz3vyH2bTYLQ3+ct0W8ai/BkYaq1n1jP8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c3fc1fe6d8765d99c8614c6f82d611dc56b9ae37",
+        "lastModified": 1755814575,
+        "narHash": "sha256-G1R+faI2LtBmPdpnRwYgmk4xKQPb3F/wYLPPYzBFzoQ=",
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "rev": "436afa7e7c60f1b8a9338c52c0f81421ea4f83b0",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "aoc-langs": "aoc-langs",
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "flake-utils": "flake-utils",
+        "polyglot": "polyglot"
       }
     },
     "systems": {

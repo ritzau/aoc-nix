@@ -1,20 +1,14 @@
 {
   description = "Hello World R";
+
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
-    flake-utils.url = "github:numtide/flake-utils";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages";
   };
+
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.r.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-r";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.r.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+    };
 }
