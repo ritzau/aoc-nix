@@ -1,24 +1,5 @@
 {
   "nodes": {
-    "aoc-langs": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1755723582,
-        "narHash": "sha256-uHh/XPILPO9Msma9Hd+n4vZgXRfL0pP3WDszSzDboNA=",
-        "owner": "ritzau",
-        "repo": "aoc-polyglot-languages",
-        "rev": "ad43672a5bcf13334675245f2143450b207f1454",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ritzau",
-        "repo": "aoc-polyglot-languages",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -71,10 +52,29 @@
         "type": "github"
       }
     },
+    "polyglot": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1755792676,
+        "narHash": "sha256-d6SR3ndnwhdRNErwA2rSpxRo5jsuVWQALmvbHmsYHZc=",
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "rev": "b4692d99fd7635245a2cf0f364eb7cb8d6c5bdde",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ritzau",
+        "repo": "aoc-polyglot-languages",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "aoc-langs": "aoc-langs",
-        "flake-utils": "flake-utils_2"
+        "flake-utils": "flake-utils",
+        "polyglot": "polyglot"
       }
     },
     "systems": {
