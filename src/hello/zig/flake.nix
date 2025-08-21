@@ -1,20 +1,16 @@
 {
   description = "Hello World Zig";
+
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages";
     flake-utils.url = "github:numtide/flake-utils";
   };
+
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.zig.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-zig";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.zig.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+      # pname auto-derived from src path as "hello-zig"
+    };
 }

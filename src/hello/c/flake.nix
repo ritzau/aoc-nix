@@ -1,20 +1,17 @@
 {
   description = "Hello World C";
+
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages";
     flake-utils.url = "github:numtide/flake-utils";
   };
+
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.c.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-c";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.c.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+      # gcc defaults to pkgs.gcc
+      # pname auto-derived from src path as "hello-c"
+    };
 }

@@ -2,21 +2,15 @@
   description = "Hello World Rust";
 
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.rust.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-rust";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.rust.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+      # pname auto-derived from src path as "hello-rust"
+    };
 }
