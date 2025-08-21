@@ -8,9 +8,10 @@
 
   outputs =
     { self, aoc-langs, ... }:
-    aoc-langs.lib.java.mkSimpleFlake ./. {
+    aoc-langs.lib.java.mkSimpleFlake self {
+      src = ./.;
       # description auto-extracted from self.description
-      # src passed explicitly to avoid recursion
       # jdk defaults to "jdk21"
+      # pname auto-derived from src path as "hello-java"
     };
 }
