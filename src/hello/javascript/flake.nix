@@ -1,20 +1,15 @@
 {
   description = "Hello World JavaScript";
+
   inputs = {
-    aoc-langs.url = "github:ritzau/aoc-polyglot-languages";
+    polyglot.url = "github:ritzau/aoc-polyglot-languages";
     flake-utils.url = "github:numtide/flake-utils";
   };
+
   outputs =
-    {
-      self,
-      aoc-langs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      aoc-langs.lib.${system}.javascript.mkStandardOutputs {
-        src = ./.;
-        pname = "hello-javascript";
-      }
-    );
+    { self, polyglot, ... }:
+    polyglot.lib.javascript.mkDefaultOutputs {
+      inherit (self) description;
+      src = ./.;
+    };
 }
