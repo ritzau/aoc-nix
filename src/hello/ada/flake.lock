@@ -58,16 +58,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1755798320,
-        "narHash": "sha256-+c7aZVJ9W0jvfZBmBFkl9bn4DVNjC23/5Db/dDvMTgk=",
+        "lastModified": 1755800755,
+        "narHash": "sha256-VM3yyNn6JYESvvEv9t6qK0xSthYNne2+rh3e8zrvxqM=",
         "owner": "ritzau",
         "repo": "aoc-polyglot-languages",
-        "rev": "f8463ec7c6afcfb4d68257db0da1136f801be0fb",
+        "rev": "4e21ad5cdf74501fd9559b339faab19c5f5699d6",
         "type": "github"
       },
       "original": {
         "owner": "ritzau",
-        "ref": "f8463ec",
+        "ref": "4e21ad5",
         "repo": "aoc-polyglot-languages",
         "type": "github"
       }
