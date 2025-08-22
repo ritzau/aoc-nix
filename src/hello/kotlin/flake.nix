@@ -3,7 +3,6 @@
 
   inputs = {
     polyglot.url = "github:ritzau/aoc-polyglot-languages";
-    # flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
